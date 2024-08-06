@@ -1,0 +1,16 @@
+{
+    "name": "be.eloistree.pathtypereadwrite",
+    "rootNamespace": "",
+    "references": [
+        "GUID:88654a602f4bf1e47b4b300ef3c24b28"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
