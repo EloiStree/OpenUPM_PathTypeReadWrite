@@ -12,14 +12,11 @@ namespace Eloi
     #region LABEL OF WHAT IT DOES
     public static partial class AbsoluteTypePathTool
     {
-
+      
     }
-    #endregion
-    #region LABEL OF WHAT IT DOES
-    public static partial class AbsoluteTypePathTool
-    {
 
-    }
+#endregion
+#region SOME UTILITY
     #endregion
     #region LABEL OF WHAT IT DOES
     public static partial class AbsoluteTypePathTool
@@ -366,11 +363,15 @@ namespace Eloi
     {
         public static void OverwriteFile(in I_PathTypeAbsoluteFileGet file, in string text)
         {
+            if(text == null)
+                return;
             CreateDirectoryIfNotThere(file);
             File.WriteAllText(file.GetPath(), text);
         }
         public static void OverwriteFile(in I_PathTypeAbsoluteFileGet file, in byte[] bytes)
         {
+            if (bytes == null)
+                return;
             CreateDirectoryIfNotThere(file);
             File.WriteAllBytes(file.GetPath(), bytes);
         }
@@ -612,9 +613,8 @@ namespace Eloi
 
 
 
-        public static void OverwriteTexture2D(in I_PathTypeAbsoluteFileGet filePath, Texture2D texture, out bool succeed)
+        public static void OverwriteTexture2D(in I_PathTypeAbsoluteFileGet filePath, Texture2D texture)
         {
-            succeed = false;
             SplitInfoAsString(
                 in filePath,
                 out string directory,
@@ -622,18 +622,18 @@ namespace Eloi
                 out string fileExtension);
             fileExtension = fileExtension.Trim().ToLower();
             if (fileExtension == "png")
-                OverwriteFileAsPNG(in filePath, texture ,out succeed);
-            if (fileExtension == "tag")
-                OverwriteFileAsTGA(in filePath, texture, out succeed);
+                OverwriteFileAsPNG(in filePath, texture );
+            if (fileExtension == "tga")
+                OverwriteFileAsTGA(in filePath, texture);
             if (fileExtension == "jpg" ||
                 fileExtension == "jpeg")
-                OverwriteFileAsJPEG(in filePath, texture, out succeed);
+                OverwriteFileAsJPEG(in filePath, texture);
         }
 
-        public static void OverwriteFileAsPNG(in I_PathTypeAbsoluteFileGet file, in RenderTexture texture, out bool succed, bool mipChain, bool linear)
+        public static void OverwriteFileAsPNG(in I_PathTypeAbsoluteFileGet file, in RenderTexture texture, bool mipChain, bool linear)
         {
             CopyRenderTextureToTexture2D(texture, out Texture2D texture2D, mipChain, linear);
-            OverwriteFileAsPNG(file, texture2D, out succed);
+            OverwriteFileAsPNG(file, texture2D);
             GameObject.DestroyImmediate(texture2D,true);
         }
 
@@ -652,36 +652,24 @@ namespace Eloi
 
 
 
-        public static void OverwriteFileAsPNG(in I_PathTypeAbsoluteFileGet path, in Texture2D texture, out bool succed)
+        public static void OverwriteFileAsPNG(in I_PathTypeAbsoluteFileGet path, in Texture2D texture)
         {
-            succed = false;
-            try
-            {
+           
                 AbsoluteTypePathTool.OverwriteFile(path, texture.EncodeToPNG());
-                succed = true;
-            }
-            catch { }
+          
         }
 
-        public static void OverwriteFileAsJPEG(in I_PathTypeAbsoluteFileGet path, in Texture2D texture, out bool succced)
+        public static void OverwriteFileAsJPEG(in I_PathTypeAbsoluteFileGet path, in Texture2D texture)
         {
-            succced = false;
-            try
-            {
+            
                 AbsoluteTypePathTool.OverwriteFile(path, texture.EncodeToJPG());
-                succced = true;
-            }
-            catch { }
+             
         }
-        public static void OverwriteFileAsTGA(in I_PathTypeAbsoluteFileGet path, in Texture2D texture, out bool succced)
+        public static void OverwriteFileAsTGA(in I_PathTypeAbsoluteFileGet path, in Texture2D texture)
         {
-            succced = false;
-            try
-            {
+           
                 AbsoluteTypePathTool.OverwriteFile(path, texture.EncodeToTGA());
-                succced = true;
-            }
-            catch { }
+             
         }
 
 
@@ -734,9 +722,9 @@ namespace Eloi
             GetDirectoryTypePathOf(file, out I_PathTypeAbsoluteDirectoryGet directory);
             CreateDirectoryIfNotThere(directory);
         }
-        public static void CreateDirectoryIfNotThere(in I_PathTypeAbsoluteDirectoryGet file)
+        public static void CreateDirectoryIfNotThere(in I_PathTypeAbsoluteDirectoryGet directory)
         {
-            string dir = Path.GetDirectoryName(file.GetPath());
+            string dir =directory.GetPath();
             if (!Directory.Exists(dir))
                 Directory.CreateDirectory(dir);
         }

@@ -9,7 +9,9 @@ namespace Eloi
     public abstract class AbstractUndefinedPathMono : MonoBehaviour
     {
 
-        public abstract void GetPath(out string path);
+        public void GetPath(out string path) {
+            path = GetPath();
+        }
         public abstract string GetPath();
 
         [ContextMenu("Open Target")]
@@ -28,5 +30,7 @@ namespace Eloi
         public void CreateDirectory() {
             Directory.CreateDirectory(GetPath());
         }
+
+        
     }
 }

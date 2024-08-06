@@ -3,7 +3,7 @@
 namespace Eloi
 {
     [System.Serializable]
-    public class FileNameWithExtension : I_PathTypeFileNameWithExtensionGet
+    public class FileNameWithExtension : I_PathTypeFileNameWithExtensionGet, I_PathTypeFileNameWithExtensionSet
     {
         [SerializeField] string m_fileName = "";
         [SerializeField] string m_extensionNameWithoutDot = "";
@@ -41,6 +41,21 @@ namespace Eloi
         public bool IsEmpty()
         {
             return m_fileName.Trim().Length <= 0 && m_extensionNameWithoutDot.Trim().Length <= 0;
+        }
+
+        public void SetExtensionWithoutDot(string fileExtension)
+        {
+            m_extensionNameWithoutDot = fileExtension.Trim('.');
+        }
+
+        public void SetFileNameWithoutDot(string fileNameWithoutDot)
+        {
+            m_fileName = fileNameWithoutDot.TrimEnd('.');
+        }
+
+        public void SetFileNameWithExtensionAndDot(string filenameWithExtension)
+        {
+            Eloi.PathTypeStringUtility.SplitInTwo(filenameWithExtension, '.', out m_fileName, out m_extensionNameWithoutDot);
         }
     }
 }

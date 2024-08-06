@@ -6,16 +6,14 @@ using UnityEngine;
 public class PathTypeMono_OverrideTextFile : MonoBehaviour
 {
 
-    [Header("Abstract value container")]
-    public A_PathTypeAbsoluteFileMono m_filePath;
-    public A_PathTypeAbsoluteDirectoryMono m_directoryPath;
-    public A_PathTypeRelativeDirectoryMono m_relativeDirectoryPath;
-    public A_PathTypeRelativeFileMono m_relativePathPath;
+    [TextArea(2, 4)]
+    public string m_textToWrite = "Hello World";
+    public A_PathTypeAbsoluteFileMono m_whereToStore;
 
-    [Header("Store value")]
-    public PathTypeAbsoluteFile m_absoluteFilePathValue;
-    public PathTypeAbsoluteDirectory m_absoluteDirectoryPathValue;
-    public PathTypeRelativeDirectory m_relativeDirectoryPathValue;   
-    public PathTypeRelativeFile m_relativePathPathValue;
-    
+    [ContextMenu("Write file")]
+    public void WriteFile()
+    {
+        AbsoluteTypePathTool.OverwriteFile(m_whereToStore, m_textToWrite);
+    }
+
 }
