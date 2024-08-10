@@ -4,13 +4,18 @@ namespace Eloi
 {
     public static class TypePathCombineTool
     {
-        
+
 
 
         public static I_PathTypeAbsoluteDirectoryGet Combine(in I_PathTypeAbsoluteDirectoryGet root, in I_PathTypeRelativeDirectoryGet subfolders)
         {
             PathTypeStringUtility.MeltPathTogether(out string pathfolder, root.GetPath(), subfolders.GetPath());
             return new PathTypeAbsoluteDirectory(pathfolder);
+        }
+        public static I_PathTypeAbsoluteFileGet Combine(in I_PathTypeAbsoluteDirectoryGet root, in I_PathTypeRelativeFileGet relativePath)
+        {
+            PathTypeStringUtility.MeltPathTogether(out string pathfolder, root.GetPath(), relativePath.GetPath());
+            return new PathTypeAbsoluteFile(pathfolder);
         }
 
         public static I_PathTypeAbsoluteFileGet Combine(in I_PathTypeAbsoluteDirectoryGet root, in I_PathTypeRelativeDirectoryGet subfolders, in I_PathTypeFileNameWithExtensionGet file)
