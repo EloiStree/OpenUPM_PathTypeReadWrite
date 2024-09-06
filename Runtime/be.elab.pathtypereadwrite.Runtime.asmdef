@@ -1,8 +1,8 @@
 {
-    "name": "be.eloistree.pathtypereadwrite",
+    "name": "be.elab.pathtypereadwrite",
     "rootNamespace": "",
     "references": [
-        "GUID:88654a602f4bf1e47b4b300ef3c24b28"
+        "be.elab.codetag"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
