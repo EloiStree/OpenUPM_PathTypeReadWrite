@@ -409,7 +409,7 @@ namespace Eloi
         }
         public static void AppendEndOfFile(in I_PathTypeAbsoluteFileGet file, in byte[] bytes)
         {
-            E_CodeTag.QualityAssurance.TestedState(E_CodeTag.QualityAssurance.TestedStateType.NotAtAllButShould);
+            //E_CodeTag.QualityAssurance.TestedState(E_CodeTag.QualityAssurance.TestedStateType.NotAtAllButShould);
             CreateDirectoryIfNotThere(file);
             File.WriteAllBytes(file.GetPath(), bytes);
             if (File.Exists(file.GetPath()))
@@ -427,7 +427,7 @@ namespace Eloi
         }
         public static void AppendStartOfFile(in I_PathTypeAbsoluteFileGet file, in byte[] bytes)
         {
-            E_CodeTag.QualityAssurance.TestedState(E_CodeTag.QualityAssurance.TestedStateType.NotAtAllButShould);
+           // E_CodeTag.QualityAssurance.TestedState(E_CodeTag.QualityAssurance.TestedStateType.NotAtAllButShould);
             CreateDirectoryIfNotThere(file);
             File.WriteAllBytes(file.GetPath(), bytes);
             if (File.Exists(file.GetPath()))
