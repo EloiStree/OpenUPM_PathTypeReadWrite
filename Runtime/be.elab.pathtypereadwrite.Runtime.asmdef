@@ -1,9 +1,7 @@
 {
     "name": "be.elab.pathtypereadwrite",
     "rootNamespace": "",
-    "references": [
-        "be.elab.codetag"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -1,0 +1,23 @@
+
+{                                                                                
+  "name": "be.elab.pathtype",                              
+  "displayName": "Path Type Read Write",                        
+  "version": "0.0.1",                         
+  "unity": "2018.1",                             
+  "unityRelease": "",                             
+  "description": "I created this tool because I was tired of wondering if a path is: relative absolute forlder or file.",                         
+  "keywords": ["Script","Tool"],                       
+  "dependencies":{},     
+  "relatedPackages":{},     
+  "samples" : [],     
+  "author" : {
+"name":"",
+"mail":"",
+"url":""},     
+  "repository":{
+"type":"Git",
+"url":"https://github.com/EloiStree/2024_08_06_PathTypeReadWrite.git",
+"footprint":"",
+"revision":""},     
+  "category": "Script"                   
+} 
