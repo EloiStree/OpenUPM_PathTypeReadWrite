@@ -23,6 +23,7 @@ public class PathTypeMono_CreateOrReadTextFile : MonoBehaviour
         if (m_whereToStore != null)
         {
             string path = m_whereToStore.GetPath();
+            AbsoluteTypePathTool.CreateDirectoryIfNotThere(m_whereToStore);
             if (!File.Exists(path))
             {
                 string text = " ";
