@@ -2,7 +2,7 @@
 {                                                                                
   "name": "be.elab.pathtype",                              
   "displayName": "Path Type Read Write",                        
-  "version": "0.0.1",                         
+  "version": "2025.1.16",                         
   "unity": "2018.1",                             
   "unityRelease": "",                             
   "description": "I created this tool because I was tired of wondering if a path is: relative absolute forlder or file.",                         
