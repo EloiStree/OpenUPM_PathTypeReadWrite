@@ -11,8 +11,8 @@ public class TypePathMono_RootToSubDirectory : A_PathTypeAbsoluteDirectoryMono
 
     public override string GetPath()
     {
-      
-        return Path.Combine(m_whereToStore.GetPath(), m_subDirectories.GetAsString());
+       string path =string.Join("/",  m_subDirectories.GetAsString());
+        return Path.Combine(m_whereToStore.GetPath(), path);
     }
 
 

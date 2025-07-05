@@ -20,7 +20,7 @@ namespace Eloi
 
         public string GetAsString()
         {
-            return string.Join(Path.PathSeparator, m_subDirectories);
+            return string.Join("/", m_subDirectories);
         }
 
         public void GetAsString(out string subDirectionString)
